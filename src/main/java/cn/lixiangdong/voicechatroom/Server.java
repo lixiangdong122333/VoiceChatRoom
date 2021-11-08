@@ -1,6 +1,5 @@
 package cn.lixiangdong.voicechatroom;
 
-import javax.sound.sampled.*;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -63,8 +62,8 @@ public class Server {
 
                 byte[]b=new byte[1024];
                 while (bis.read(b,0,b.length)!=-1){
-                    for (int i=0;i<bos.length;i++){
-                        bos[i].write(b,0,b.length);
+                    for (BufferedOutputStream bo : bos) {
+                        bo.write(b, 0, b.length);
                     }
                 }
             }catch (IOException e){

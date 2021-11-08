@@ -50,7 +50,7 @@ public class Client {
     public class Receive implements Runnable{
         @Override
         public void run() {
-            SourceDataLine sourceDataLine = null;
+            SourceDataLine sourceDataLine;
             try {
                 byte[] b=new byte[1024];
                 sourceDataLine = AudioSystem.getSourceDataLine(format);
